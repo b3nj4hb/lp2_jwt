@@ -11,6 +11,8 @@ import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -30,6 +32,8 @@ public class Rol implements Serializable{
 	@Column(name="idroles")
 	private int id;
 	private String nombre;
+	
 	@ManyToMany(mappedBy = "roles")
+	@JsonIgnore
 	private List<Usuario> usuarios;
 }

@@ -11,6 +11,8 @@ import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 
@@ -40,6 +42,7 @@ public class Usuario {
     @JoinTable(name = "usuarios_roles",
         joinColumns = @JoinColumn(name = "usuarios_id", referencedColumnName = "idusuario"),
         inverseJoinColumns = @JoinColumn(name = "roles_id", referencedColumnName = "idroles"))
+	@JsonIgnore
 	private List<Rol> roles;
 	
 	public boolean getEstado() {
